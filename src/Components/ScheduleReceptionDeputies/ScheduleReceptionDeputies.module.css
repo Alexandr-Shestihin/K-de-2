@@ -1,0 +1,16 @@
+.tabPage {
+   display: none;
+}
+
+.tabPage.active {
+   display: block;
+}
+
+.table:first-child {
+   max-width: 50px;
+}
+
+.table:last-child {
+   min-width: 402px;
+   color: #808080;
+}

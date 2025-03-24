@@ -1,0 +1,10 @@
+.contantContainer {
+   margin: 0 auto;
+   width: 1130px;
+   /* border: 1px solid red; */
+}
+@media screen and (max-width: 1444px) {
+   .contantContainer {
+      width: 100%;
+   }
+}

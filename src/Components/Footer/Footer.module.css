@@ -1,0 +1,76 @@
+.logoBlock {
+   display: flex;
+   cursor: pointer;
+   text-decoration: none;
+   color: #303030;
+}
+
+.textMain {
+   margin-left: 13.33px;
+   width: 204px;
+}
+
+.titleAdministration {
+   font-size: 10px;
+   font-weight: 600;
+   line-height: 14.12px;
+}
+
+.titleInfo {
+   width: 140px;
+   font-size: 10px;
+   font-weight: 400;
+   line-height: 14.12px;
+   color: #3030308F;
+}
+
+.footerTitle {
+   color: #303030;
+   font-family: 'Inter';
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 24px;
+}
+
+.columnContainer {
+   display: flex;
+   justify-content: space-between;
+   gap: 20px;
+}
+
+.rowContainer {
+   margin: 40px 0;
+   display: flex;
+   justify-content: space-between;
+}
+
+.info {
+   color: #B9B9B9;
+   font-family: 'Inter';
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 16px;
+   letter-spacing: -0.24px;
+}
+
+@media screen and (max-width: 935px) {
+   .columnContainer {
+      flex-direction: column;
+   }
+}
+
+@media screen and (max-width: 745px) {
+   .rowContainer {
+      flex-direction: column;
+   }
+
+   .footer {
+      margin-top: 80px;
+   }
+
+   .info:not(:first-child) {
+      margin-top: 20px;
+   }
+}

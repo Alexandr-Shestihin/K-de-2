@@ -1,0 +1,40 @@
+.tabPage {
+   display: none;
+}
+
+.tabPage.active {
+   display: block;
+}
+
+.logoBlock {
+   display: flex;
+}
+
+.imgContainer {
+   width: 56px;
+   height: 56px;
+   border-radius: 8px;
+   overflow: hidden;
+}
+
+.imgContainer img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.textBlock {
+   margin-left: 16px;
+   font-size: 12px;
+   font-weight: 400;
+   line-height: 16px;
+   letter-spacing: -0.02em;
+   text-align: left;
+   color: #8291A1;
+}
+
+@media screen and (max-width: 1225px){
+   .mobilMt20 {
+      margin-top: 24px !important;
+   }
+}

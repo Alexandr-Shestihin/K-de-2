@@ -1,0 +1,127 @@
+.react_select{
+   position: relative;
+}
+   .react_select__err{
+      border: 1px solid red;
+   }
+   .react_select__messageErr{
+     color: red;
+   }
+   .inputDisplayNone{
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 0;
+      width: 0;
+   }
+   /* Валидация */
+
+
+   @keyframes scaleIn {
+	0% {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	50% {
+		opacity: 0.3;
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+   .react_select__control{
+      margin-top: 6px !important;
+      background-color: #F9F9F9 !important;
+      color: black !important;
+      border: 1px solid var(--stroke-color-2) !important;
+      border-radius: var(--radius-12) !important;
+   }
+   /* сам элемент input */
+
+   .react_select__control--menu-is-open{
+      border: none !important;
+   }
+/* input при открытии меню */
+
+   .react_select__value-container{
+      padding-left: 16px !important; /* отступы в от результата */
+      cursor: text !important;
+      /* border: 1px solid red !important; */
+   }
+   /* Область вокруг результата */
+
+   .react_select__input-container{
+      color: black !important;
+   }
+   /* Стилизация самого input */
+
+   .react_select__indicator-separator{
+      /* display: none; */
+   }
+   /* Разделительная черта */
+
+   .react_select__indicators{
+      background-color: #F9F9F9 !important; 
+   }
+   /* Область вокруг крестика и стрелочки */
+
+   .react_select__indicator{
+      color: #B0B9CD !important; 
+   }
+   /* Цвета крестиков, стрелочек */
+
+   .react_select__indicator:hover{
+         background-color:  #e2dede !important;
+         color: #ffffff !important;
+         /* border-left: 1px solid rgb(54, 7, 166);
+         border-right: 1px solid rgb(54, 7, 166); */
+         cursor: pointer;
+      }
+   /* стили крестиков, стрелочек при наведении */
+
+   .react_select__multi-value {
+      background-color: rgb(39, 5, 118) !important;
+      border-radius: 10px !important;
+      color: white !important;
+      /* animation: scaleIn 0.35s ease-in-out; *//* Анимация появления элемента */
+   }
+   /* стили выбранных элементов */
+
+   .react_select__multi-value__label {
+      color: white !important;
+   }
+   /* стили шрифта выбранных элементов */
+
+   .react_select__multi-value__remove {
+      color: white !important;
+   }
+   /* стили крестиков удаления на выбранных элементах*/
+
+   .react_select__multi-value__remove:hover{
+         background-color: red !important;
+         border-radius: 50%;
+         color: white !important;
+         cursor: pointer !important;
+      }
+   /* стили кнопки удаления */
+
+   .react_select__menu {
+      background-color: #F9F9F9 !important;
+      /* color: #fff !important; */
+		/* animation: scaleIn 0.35s ease-in-out; *//* Анимация открытия списка */
+   }
+   /* стили выпадающего меню */
+
+   .react_select__option{
+      cursor: pointer !important;
+      color: #000000 !important;
+   }
+   /* стили элементов выпадающего меню */
+   
+   .react_select__option--is-focused{
+         background-color: #c5c0c0 !important;
+         color: black !important;
+      }
+   /* стили активных элементов выпадающего меню */

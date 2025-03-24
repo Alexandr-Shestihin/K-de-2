@@ -1,0 +1,77 @@
+.showMore {
+   margin: 40px auto 0 auto;
+   display: flex;
+   width: 164px;
+   padding: 8px 24px;
+   justify-content: center;
+   align-items: center;
+   border-radius: 10px;
+   border: 1px solid #B0B0B0;
+   cursor: pointer;
+   color: #303030;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 24px;
+}
+
+.modalContainer {
+   width: 600px;
+}
+
+.uppContainerRow {
+   display: flex;
+   justify-content: space-between;
+}
+
+.close {
+   display: flex;
+   padding: 16px;
+   justify-content: center;
+   border-radius: 53px;
+   background: #F6F6F6;
+   cursor: pointer;
+}
+
+.subscribe {
+   width: calc(100% - 38px);
+   height: 56px;
+   padding: 0px 16px;
+   border-radius: 12px;
+   border: 1px solid #EDEDED;
+}
+
+.buttonSubscribe {
+   padding: 8px 16px;
+}
+
+.flexContainerModal {
+   width: 100%;
+   display: flex;
+   justify-content: end;
+}
+
+.btnApply {
+   text-align: center;
+   padding: 12px 0;
+   border-radius: 12px;
+}
+
+@media screen and (max-width: 700px) {
+   .showMore {
+      margin-top: 40px;
+      padding: 8px 24px;
+      width: 164px;
+      font-size: 16px;
+   }
+
+   .modalContainer {
+      width: 100%;
+   }
+
+   .close {
+      padding: 8px;
+      width: 24px;
+      height: 24px;
+   }
+}

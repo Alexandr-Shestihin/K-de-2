@@ -1,0 +1,36 @@
+.successContainer {
+   position: relative;
+   bottom: 0;
+   width: 564px;
+   height: 80px;
+   background: #ED7459;
+   display: flex;
+   align-items: center;
+   border-radius: 28px;
+   color: #FFF;
+}
+
+.infoImgContainer {
+   width: 40px;
+   height: 40px;
+   margin-left: 32px;
+}
+
+.infoCloseContainer {
+   position: absolute;
+   top: 12px;
+   right: 12px;
+   width: 28px;
+   height: 28px;
+   cursor: pointer;
+}
+
+.text {
+   margin-left: 12px;
+}
+
+.infoImgContainer img,
+.infoCloseContainer img {
+   width: 100%;
+   height: 100%;
+}

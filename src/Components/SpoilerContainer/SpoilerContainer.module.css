@@ -1,0 +1,27 @@
+.spoilerContainer {
+   padding: 0;
+   box-sizing: border-box;
+}
+
+.spoilerHeader {
+   border-radius: 40px 40px 0 0;
+   padding: 24px 32px;
+   color: #8C7E00;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 22px;
+   letter-spacing: -0.2px;
+}
+
+.spoilerContentContainer {
+   padding: 24px;
+}
+
+@media screen and (max-width: 745px) {
+   .spoilerHeader {
+      border-radius: 24px 24px 0 0;
+      font-size: 16px;
+      padding: 12px 24px;
+   }
+}

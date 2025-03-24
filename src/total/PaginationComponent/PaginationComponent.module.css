@@ -1,0 +1,22 @@
+.paginationContainer {
+   margin: 0 auto;
+   display: flex;
+   gap: 16px;
+   padding: 8px;
+}
+
+.pagination {
+   display: flex;
+   gap: 16px;
+}
+
+.paginationItem {
+   font-size: 16px;
+   line-height: 24px;
+   cursor: pointer;
+}
+
+.paginationItem.active {
+   border-bottom: 2px solid;
+   font-weight: bold;
+}

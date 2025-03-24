@@ -1,0 +1,28 @@
+.tabsContainerRow {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 4px;
+}
+
+.tab {
+   color: #303030;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 16px;
+   letter-spacing: -0.28px;
+   padding: 12px 16px;
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+.tab.active {
+   background: #ECEFF2;
+}
+
+@media screen and (max-width: 745px) {
+   .tab {
+      font-size: 11px;
+      padding: 8px;
+   }
+}

@@ -1,0 +1,31 @@
+.container {
+   display: flex;
+   flex-direction: column;
+}
+
+.description {
+   font-size: 16px;
+   line-height: 24px;
+   color: #808080;
+}
+
+.titleRow {
+   display: flex;
+   justify-content: space-between;
+}
+
+.checkbox {
+   width: 48px;
+}
+
+.title {
+   width: 698px;
+}
+
+.published {
+   width: 148px;
+}
+
+.date {
+   width: 188px;
+}

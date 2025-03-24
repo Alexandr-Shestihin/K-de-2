@@ -1,0 +1,137 @@
+.link {
+   width: 80%;
+   text-decoration: none;
+   display: flex;
+   color: #303030;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 24px;
+   letter-spacing: -0.32px;
+   cursor: pointer;
+}
+
+.link_Second {
+   width: calc(80% - 60px);
+}
+
+.textInner {
+   max-width: 610px;
+   font-weight: 600;
+   color: #303030;
+   font-family: "Inter";
+   font-size: 12px;
+   font-weight: 400;
+   line-height: 16px;
+   letter-spacing: -0.24px;
+}
+
+.textInner_Second {
+   display: flex;
+   align-items: center;
+}
+
+.title {
+   color: #303030;
+   font-family: "Inter";
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 20px;
+   letter-spacing: -0.28px;
+}
+
+.datePublication {
+   color: #808080;
+   align-self: flex-start;
+   text-align: right;
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 16px;
+   letter-spacing: -0.28px;
+}
+
+.documentIcon {
+   margin-right: 24px;
+   border-radius: 12px;
+   padding: 10px;
+}
+
+.documentIconSecond {
+   width: 20px;
+   height: 20px;
+   padding: 6px;
+}
+
+.documentIconSecond img {
+   width: 100%;
+}
+
+.PDF {
+   background: #e13d34;
+}
+.documentIconSecond.PDF {
+   background: none;
+   border: 1px solid #E13D34;
+}
+
+.DOCX {
+   background: #307cf1;
+}
+.documentIconSecond.DOCX {
+   background: none;
+   border: 1px solid #307CF1;
+}
+
+.XLS {
+   background: #36a267;
+}
+.documentIconSecond.XLS {
+   background: none;
+   border: 1px solid #36A267;
+}
+
+.ARCHIVE {
+   background: #e12197;
+}
+.documentIconSecond.ARCHIVE {
+   background: none;
+   border: 1px solid #E12197;
+}
+
+.documentContainer {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.documentSecondItem {
+   width: calc(100% - 60px);
+   margin-left: 60px;
+}
+
+@media screen and (max-width: 745px) {
+   .link {
+      width: 100%;
+   }
+
+   .datePublication {
+      display: none;
+   }
+
+   .textInner {
+      font-size: 12px;
+      line-height: 16px;
+   }
+
+   .documentIcon {
+      border-radius: 6px;
+      padding: 5px;
+   }
+
+   .documentContainer {
+      border: none;
+   }
+}

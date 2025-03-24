@@ -1,0 +1,122 @@
+.item {
+   width: 100%;
+   height: 100%;
+   border-radius: 40px;
+   object-fit: contain;
+}
+
+.showMore {
+   display: inline-block;
+   text-decoration: none;
+   border-radius: 10px;
+   border: 1px solid #B0B0B0;
+   padding: 8px 24px;
+   color: #303030;
+   font-family: 'Inter';
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 24px;
+}
+
+.lastNewsContainer {
+   display: flex;
+   justify-content: space-between;
+}
+
+.imgContainer img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.bannersContainer {
+   display: flex;
+   justify-content: space-between;
+}
+
+.governmentServicesLargeBanner {
+   width: calc(76% - 10px);
+}
+
+.governmentServicesBanner {
+   /* width: calc(24% - 10px); */
+}
+
+.bannersContainerMini {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 16px;
+}
+
+@media screen and (max-width: 1370px) {
+   .lastNewsContainer {
+      flex-direction: column;
+      align-items: center;
+   }
+
+   .mobilBannerRow {
+      flex-wrap: wrap;
+      gap: 16px;
+   }
+
+   .mobilStatistics {
+      margin-top: 32px;
+   }
+
+   .mobilTGChannel {
+      display: flex;
+      justify-content: center;
+      min-width: 100%;
+      margin-top: 32px;
+   }
+
+   .governmentServicesLargeBanner {
+      margin: 0;
+   }
+
+   .mt64Mobile {
+      margin-top: 64px;
+   }
+
+   .bannersContainer {
+      flex-direction: column;
+   }
+
+   .governmentServicesLargeBanner {
+      width: 100%;
+   }
+
+   .overnmentServicesBanner {
+      width: 100%;
+   }
+
+   .governmentServicesBanner {
+      margin-top: 20px;
+      /* width: calc(100% - 80px); */
+   }
+}
+
+@media screen and (max-width: 745px) {
+   .showMore {
+      margin-top: 16px;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px;
+      padding: 8px 16px;
+   }
+
+   .mainNewsTitle {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 28px;
+   }
+}
+
+@media screen and (max-width: 366px) {
+   .mobilBannerRow {
+      justify-content: center;
+   }
+}

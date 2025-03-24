@@ -1,0 +1,73 @@
+.bannerContainer {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: flex-start;
+   background: url('../../assets/img/banners/voting_government.png') 0 0/auto auto no-repeat;
+   background-size: cover;
+   width: calc(100% - 80px);
+   height: calc(100% - 80px);
+   padding: 40px;
+   overflow: hidden;
+   cursor: pointer;
+   text-decoration: none;
+}
+
+@media screen and (max-width: 1370px) {
+   .bannerContainer {
+      background-position: right;
+      background-size: 500px;
+   }
+
+   .bannerContainer {
+      /* width: 100%; */
+   }
+}
+
+@media screen and (max-width: 765px) {
+   .bannerContainer {
+      background-size: contain;
+   }
+}
+
+.title {
+   display: inline-block;
+   font-size: 24px;
+   letter-spacing: -0.01em;
+   line-height: 28px;
+   font-weight: 500;
+   color: #303030;
+}
+
+.textBody {
+   width: 245px;
+   margin-top: 24px;
+   font-size: 14px;
+   letter-spacing: -0.01em;
+   line-height: 20px;
+   font-weight: 500;
+   color: #323232;
+}
+
+.button {
+   /* width: 114px; */
+   padding: 8px 24px;
+   border-radius: 10px;
+   font-size: 16px;
+   line-height: 24px;
+   color: #fff;
+}
+
+@media screen and (max-width: 1370px) {
+   .button {
+      margin-top: 24px;
+   }
+}
+
+@media screen and (max-width: 500px) {
+   .button {
+      font-size: 12px;
+      padding: 8px 16px;
+      line-height: 16px;
+   }
+}

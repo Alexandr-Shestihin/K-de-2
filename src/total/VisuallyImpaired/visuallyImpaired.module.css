@@ -1,0 +1,109 @@
+/* ----------------------------------------------------Версия для слабовидящих---------------------------------------------------------------- */
+.row {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   padding: 8px 0;
+   gap: 20px;
+}
+
+.container {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+}
+
+.container .rowBtn {
+   display: flex;
+   gap: 5px;
+}
+
+.rowBtn>button {
+   font-weight: bold;
+   line-height: 16px;
+   padding: 6px 12px;
+   border-radius: 4px;
+   border: 1px solid rgb(199, 196, 196);
+}
+
+.activeBtn {
+   background-color: #b6b6b6 !important;
+}
+
+/* Размер шрифта */
+.middle {
+   font-weight: 600;
+   font-size: 17px;
+}
+
+.large {
+   font-weight: 900;
+   font-size: 18px;
+}
+
+/* Цвет */
+.white {
+   background: white;
+}
+
+.black {
+   background: black;
+   color: white;
+}
+
+.cian {
+   background: #9DD1FF;
+   color: #063462;
+}
+
+.yellow {
+   background: #F7F3D6;
+   color: #4D4B43;
+}
+
+.brown {
+   background: #3B2716;
+   color: #A9E44D;
+}
+
+.imageBtn {
+   width: 42px;
+   height: 33px;
+   background-position: center;
+   background-repeat: no-repeat;
+}
+
+/* Звук */
+.voiceOff {
+   background-image: url('./icons/volume-off.svg');
+   background-size: 30%;
+}
+
+.voiceOn {
+   background-image: url('./icons/volume-on.svg');
+   background-size: 50%;
+
+}
+
+/* Изображения */
+.imagesOn {
+   background-image: url('./icons/image.svg');
+   background-size: 50%;
+}
+
+.imagesOff {
+   background-image: url('./icons/minus-image.svg');
+   background-size: 50%;
+}
+
+.blackWhite {
+   background-image: url('./icons/black-white.svg');
+   background-size: 50%;
+
+}
+
+.text {
+   font-weight: 600;
+   font-size: 16px;
+   margin-bottom: 12px;
+}

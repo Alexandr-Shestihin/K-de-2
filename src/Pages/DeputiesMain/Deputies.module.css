@@ -1,0 +1,14 @@
+.tabPage {
+   display: none;
+}
+
+.tabPage.active {
+   display: block;
+}
+
+.columnContainer {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap-reverse;
+   gap: 80px;
+}

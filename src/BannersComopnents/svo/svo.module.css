@@ -1,0 +1,57 @@
+.bannerContainer {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: flex-start;
+   background: url("../../assets/img/banners/svo.png") 0 0 / auto auto no-repeat;
+   background-size: cover;
+   width: calc(100% - 80px);
+   height: 370px;
+   overflow: hidden;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+.topContainer {
+   display: flex;
+   flex-direction: column;
+}
+
+.topContainer img {
+   width: 100px;
+   width: 80px;
+}
+
+.title {
+   display: inline-block;
+   font-size: 24px;
+   letter-spacing: -0.01em;
+   line-height: 28px;
+   font-weight: 500;
+   color: #fff;
+}
+
+.textBody {
+   width: 245px;
+   margin-top: 16px;
+   font-size: 14px;
+   letter-spacing: -0.01em;
+   line-height: 20px;
+   font-weight: 500;
+   color: #fff;
+}
+
+.button {
+   padding: 8px 24px;
+   border-radius: 40px;
+   background-color: #fff;
+   font-size: 16px;
+   line-height: 24px;
+   color: #303030;
+}
+
+@media screen and (max-width: 745px) {
+   .bannerContainer {
+      width: calc(100% - 48px);
+   }
+}

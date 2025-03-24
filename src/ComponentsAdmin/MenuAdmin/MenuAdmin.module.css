@@ -1,0 +1,30 @@
+.menuContainer {
+   display: flex;
+   flex-direction: column;
+   padding-left: 40px;
+}
+
+.linkMenu {
+   position: relative;
+   padding: var(--paddings-padding-btn);
+   width: 200px;
+   border-radius: var(--radius-12);
+   text-decoration: none;
+   color: #303030;
+   box-sizing: border-box;
+}
+
+.linkMenu:not(:first-child) {
+   margin-top: 8px;
+}
+
+.active {
+   background: var(--main-secondary-active);
+   color: var(--text-4);
+}
+
+@media screen and (max-width: 1444px){
+.menuContainer{
+   padding-left: 20px;
+}
+}

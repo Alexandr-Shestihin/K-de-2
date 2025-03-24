@@ -1,0 +1,8 @@
+.inputContainerRow {
+   display: flex;
+   justify-content: space-between;
+}
+
+.inputContainerRow>* {
+   width: 42%;
+}

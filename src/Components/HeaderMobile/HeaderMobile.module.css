@@ -1,0 +1,136 @@
+.headerMobileContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100vw;
+  background: #212121;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+  z-index: 1000;
+  color: #fff;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.contentContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.itemContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.item {
+  display: flex;
+  color: #fff;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.back {
+  margin: 30px 30px 30px 0;
+  padding: 4px 0;
+  width: 48px;
+  color: #ffec00;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.32px;
+  border-bottom: 2px solid #ffec00;
+}
+
+.imgContainer {
+  transform: rotate(-90deg);
+  margin-left: 4px;
+  width: 24px;
+  height: 24px;
+}
+
+.searchContainer {
+  display: flex;
+  gap: 8px;
+  padding-right: 24px;
+  color: #a0a0a0;
+}
+
+.imgContainer img {
+  width: 100%;
+}
+
+.bottomBlock {
+  margin: 30px 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hotLine {
+  display: flex;
+  margin-right: 8px;
+  padding: 8px 24px;
+  border-radius: 40px;
+  display: flex;
+  padding: 8px 24px;
+  justify-content: center;
+  text-decoration: none;
+  background: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  color: #303030;
+}
+
+.dropDownMenu {
+  display: none;
+  padding-left: 52px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: scroll;
+  height: 100%;
+  width: 100vw;
+  background: #212121;
+}
+
+.active {
+  display: block;
+}
+
+.linkMenuContainer {
+  display: none;
+  flex-direction: column;
+}
+
+.linkMenuContainerActive {
+  display: flex;
+}
+
+.linkMenu {
+  display: flex;
+  justify-content: flex-start;
+  padding: 8px 0;
+  color: #fff;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  text-decoration: none;
+  width: 80%;
+}

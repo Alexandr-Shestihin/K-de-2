@@ -1,0 +1,69 @@
+.bannerContainer {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: flex-start;
+   background: url('../../assets/img/banners/government_services.png') 0 0/auto auto no-repeat;
+   background-size: cover;
+   width: 100%;
+   height: 325px;
+   overflow: hidden;
+   cursor: pointer;
+   padding: 40px;
+   border-radius: 12px;
+   text-decoration: none;
+   box-sizing: border-box;
+}
+
+.title {
+   display: inline-block;
+   color: #FFF;
+   font-size: 24px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 28px;
+   letter-spacing: -0.24px;
+}
+
+.textBody {
+   width: 245px;
+   margin-top: 24px;
+   color: #FFF;
+   font-size: 14px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 20px;
+   letter-spacing: -0.14px;
+}
+
+.button {
+   padding: 8px 24px;
+   border-radius: 10px;
+   font-size: 16px;
+   line-height: 24px;
+   color: #fff;
+}
+
+@media screen and (max-width: 745px) {
+   .bannerContainer {
+      padding: 24px;
+   }
+}
+
+@media screen and (max-width: 500px) {
+   .button {
+      margin-top: 16px;
+      font-size: 12px;
+      padding: 8px 16px;
+      line-height: 16px;
+   }
+}
+
+@media screen and (max-width: 390px) {
+   .bannerContainer {
+      justify-content: end;
+      background: url('../../assets/img/banners/government_services_min.png') 0 0/auto auto no-repeat;
+      background-size: cover;
+      height: 370px;
+   }
+}

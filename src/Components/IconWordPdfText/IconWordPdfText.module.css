@@ -1,0 +1,24 @@
+.documentIcon {
+   margin-right: 24px;
+   border-radius: 12px;
+   padding: 8px;
+}
+
+.PDF {
+   background: #E13D34;
+}
+
+.DOCX {
+   background: #307CF1;
+}
+
+.IMG{
+   background: #F6F6F6;
+}
+
+@media screen and (max-width: 745px) {
+   .documentIcon {
+      border-radius: 6px;
+      padding: 5px;
+   }
+}
