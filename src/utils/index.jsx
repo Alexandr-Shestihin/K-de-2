@@ -108,10 +108,10 @@ export function useDebounce(func, delay, cleanUp = false) {
    };
 }
 
-export function useDataManagement(type, getData, dataName, updatePublishedData, addOrRemoveChoiceCheckbox, setChoiceCheckboxRemoveOrAddAll) {
+export function useDataManagement(selector, getData, fetchDataAction, updatePublishedData, addOrRemoveChoiceCheckbox, setChoiceCheckboxRemoveOrAddAll) {
 
    const dispatch = useDispatch();
-   const data = useSelector(state => state[type], shallowEqual);
+   const data = useSelector(selector, shallowEqual);
    const [checkboxAll, setCheckboxAll] = useState(false);
    const [currentPage, setCurrentPage] = useState(1);
    const [limit] = useState(10);
@@ -122,7 +122,7 @@ export function useDataManagement(type, getData, dataName, updatePublishedData, 
       setIsReloading(true);
       try {
          const data = await getData(currentPage, limit, "admin"); //  Используем API для документов
-         dispatch(dataName(data)); //  Диспатчим action documents
+         dispatch(fetchDataAction(data)); //  Диспатчим action
       } catch (error) {
          console.error('Ошибка при загрузке документов:', error);
          // Обработка ошибок
@@ -134,14 +134,14 @@ export function useDataManagement(type, getData, dataName, updatePublishedData, 
    useEffect(() => {
       loadData();
    }, [loadData]);
-
+   
    //Функция снятия/постановки на публикацию
    const UpdateCheckbox = (id, currentPublished) => {
       dispatch(updatePublishedData({ id: id, published: currentPublished }));
    };
 
    // Функция для обновления данных (например, после удаления)
-   const handleDocumentUpdate = () => {
+   const handleUpdate = () => {
       loadData(); //  Перезагружаем данные
    };
 
@@ -152,7 +152,7 @@ export function useDataManagement(type, getData, dataName, updatePublishedData, 
    };
 
    //Логика изменения индивидуального cчекбокса(групповое выделение)
-   const choiceCheckbox = useSelector(state => state.documents.choiceCheckbox);
+   const choiceCheckbox = data.choiceCheckbox;
    const handleChoiceCheckbox = useCallback((id) => dispatch(addOrRemoveChoiceCheckbox(id)), [dispatch]);
 
    const handleChoiceCheckboxAll = useCallback(() => {
@@ -161,7 +161,7 @@ export function useDataManagement(type, getData, dataName, updatePublishedData, 
 
       dispatch(setChoiceCheckboxRemoveOrAddAll(allSelected ? [] : allIds));
       setCheckboxAll(!allSelected);
-   }, [data.list, checkboxAll])
+   }, [data?.list, checkboxAll])
 
    const removeSelectionsChecboxAll = useCallback(() => {
       dispatch(setChoiceCheckboxRemoveOrAddAll([]));
@@ -191,13 +191,13 @@ export function useDataManagement(type, getData, dataName, updatePublishedData, 
          })
    }
 
-   return [
+   return {
       data, checkboxAll, currentPage,
       limit, isReloading, UpdateCheckbox,
-      handleDocumentUpdate, changePage, choiceCheckbox,
+      handleUpdate, changePage, choiceCheckbox,
       handleChoiceCheckbox, handleChoiceCheckboxAll, removeSelectionsChecboxAll,
       publickAll, removePublickAll, moveInBasketInAll,
-   ]
+   }
 
 }
 

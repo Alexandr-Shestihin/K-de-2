@@ -1,99 +1,37 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 import s from "./DeputiesPageList.module.css";
 import API from "../../API";
 import { NavLink } from "react-router-dom";
 import { ROUTER } from "../../config";
 import ContantContainerAdmin from "../../total/ContantContainerAdmin";
 import PaginationComponent from "../../total/PaginationComponent";
-import { useDispatch, useSelector } from "react-redux";
 import { deputates, updatePublished, addOrRemoveChoiceCheckbox, setChoiceCheckboxRemoveOrAddAll } from 'store/slice/deputates';
 import ItemComponent from "../ItemComponent";
-import { useRequireAccessLevel } from "utils";
+import { useDataManagement, useRequireAccessLevel } from "utils";
 import DropDownMenu from "ComponentsAdmin/DropDownMenu";
 import SearchInput from "ComponentsAdmin/SearchInput/SearchInput";
 
 const DeputiesPageList = ({ level }) => {
 
-   const dispatch = useDispatch();
-   const deputatesData = useSelector(state => state.deputates);
-   const [checkboxAll, setCheckboxAll] = useState(false);
-   const [currentPage, setCurrentPage] = useState(1);  //  Состояние для текущей страницы
-   const [limit] = useState(10);                       //  Состояние для количества элементов на странице
-   const [isReloading, setIsReloading] = useState(false);  //  Состояние загрузки
-
-   // Функция загрузки депутатов
-   const loadDeputies = useCallback(async () => {
-      setIsReloading(true);
-      try {
-         const data = await API.getDeputaty(currentPage, limit, "admin"); // Получаем данные с сервера
-         dispatch(deputates(data)); // Обновляем состояние Redux
-      } catch (error) {
-         console.error('Ошибка при загрузке новостей:', error);
-         //  Обработка ошибки
-      } finally {
-         setIsReloading(false);
-      }
-   }, [currentPage, limit, dispatch]);
-
-   // Эффект для загрузки данных при монтировании компонента и изменении страницы
-   useEffect(() => {
-      loadDeputies();
-   }, [loadDeputies]);
-
-   const UpdateCheckbox = (id, currentPublished) => {
-      dispatch(updatePublished({ id: id, published: currentPublished }));
-   };
-
-   // Функция для обновления данных (например, после удаления)
-   const handleDeputatesUpdate = () => {
-      loadDeputies(); //  Перезагружаем данные
-   };
-
-   const changePage = (page) => {
-      if (page >= 1 && page <= Math.ceil(deputatesData?.all / limit)) {
-         setCurrentPage(page);
-      }
-   };
-
-   //Логика изменения индивидуального cчекбокса(групповое выделение)
-   const choiceCheckbox = useSelector(state => state.deputates.choiceCheckbox);
-   const handleChoiceCheckbox = useCallback((id) => dispatch(addOrRemoveChoiceCheckbox(id)), [dispatch]);
-
-   const handleChoiceCheckboxAll = useCallback(() => {
-      const allIds = deputatesData?.list?.map(el => el.id) || [];
-      const allSelected = allIds.every(id => choiceCheckbox.includes(id));
-
-      dispatch(setChoiceCheckboxRemoveOrAddAll(allSelected ? [] : allIds));
-      setCheckboxAll(!allSelected);
-   }, [deputatesData.list, checkboxAll])
-
-   const removeSelectionsChecboxAll = useCallback(() => {
-      dispatch(setChoiceCheckboxRemoveOrAddAll([]));
-      setCheckboxAll(false);
-   }, [dispatch, setCheckboxAll])
-
-   /* Групповое изменение по массиву id */
-   const publickAll = () => {
-      API.postAddMultipleElementsPublick({ id: choiceCheckbox, published: 1 })
-         .then(_ => {
-            loadDeputies();
-            removeSelectionsChecboxAll();
-         })
-   }
-   const removePublickAll = () => {
-      API.postAddMultipleElementsPublick({ id: choiceCheckbox, published: 0 })
-         .then(_ => {
-            loadDeputies();
-            removeSelectionsChecboxAll();
-         })
-   }
-   const moveInBasketInAll = () => {
-      API.postAddMultipleElementsPublick({ id: choiceCheckbox, remove: 1 })
-         .then(_ => {
-            loadDeputies();
-            removeSelectionsChecboxAll();
-         })
-   }
+   const {
+      data,
+      checkboxAll,
+      currentPage,
+      limit,
+      isReloading,
+      UpdateCheckbox,
+      handleDeputatesUpdate,
+      changePage, choiceCheckbox,
+      handleChoiceCheckbox, handleChoiceCheckboxAll, removeSelectionsChecboxAll,
+      publickAll, removePublickAll, moveInBasketInAll
+   } = useDataManagement(
+      state => state.deputates,
+      API.getDeputaty,
+      data => deputates(data),
+      updatePublished,
+      addOrRemoveChoiceCheckbox,
+      setChoiceCheckboxRemoveOrAddAll
+   );
 
    const accessLevel = useRequireAccessLevel(level)
    if (!accessLevel) {
@@ -135,7 +73,7 @@ const DeputiesPageList = ({ level }) => {
                   <div className='dateBlock'>Дата публикации</div>
                </div>
                <div>
-                  {deputatesData?.list?.map((el) => (
+                  {data?.list?.map((el) => (
                      <ItemComponent
                         key={el.id}
                         id={el.id}
@@ -151,9 +89,9 @@ const DeputiesPageList = ({ level }) => {
                   ))}
                </div>
                <PaginationComponent
-                  getData={deputatesData}
+                  getData={data}
                   currentPage={currentPage}
-                  totalPages={Math.ceil(deputatesData?.all / limit)}
+                  totalPages={Math.ceil(data?.all / limit)}
                   changePage={changePage} // Передаем функцию изменения страницы
                />
             </div>

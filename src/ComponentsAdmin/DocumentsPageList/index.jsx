@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 import s from "./DocumentsPageList.module.css";
 import API from "../../API";
 import { NavLink } from "react-router-dom";
@@ -6,15 +6,15 @@ import { ROUTER } from "../../config";
 import ContantContainerAdmin from "../../total/ContantContainerAdmin";
 import ItemComponent from "../ItemComponent";
 import PaginationComponent from "../../total/PaginationComponent";
-import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { documents, updatePublishedDocument, addOrRemoveChoiceCheckbox, setChoiceCheckboxRemoveOrAddAll } from "store/slice/documents";
 import { useDataManagement, useRequireAccessLevel } from "utils";
 import DropDownMenu from "ComponentsAdmin/DropDownMenu";
 import SearchInput from "ComponentsAdmin/SearchInput/SearchInput";
 
 const DocumentsPageList = React.memo(({ level }) => {
-   const [
-      documentsData,
+   
+   const {
+      data,
       checkboxAll,
       currentPage,
       limit,
@@ -24,89 +24,14 @@ const DocumentsPageList = React.memo(({ level }) => {
       changePage, choiceCheckbox,
       handleChoiceCheckbox, handleChoiceCheckboxAll, removeSelectionsChecboxAll,
       publickAll, removePublickAll, moveInBasketInAll
-   ] = useDataManagement(
-      'documents', API.getDocumentations, documents, updatePublishedDocument, addOrRemoveChoiceCheckbox, setChoiceCheckboxRemoveOrAddAll
+   } = useDataManagement(
+      state => state.documents,
+      API.getDocumentations,
+      data => documents(data),
+      updatePublishedDocument,
+      addOrRemoveChoiceCheckbox,
+      setChoiceCheckboxRemoveOrAddAll
    );
-
-   /* const dispatch = useDispatch();
-   const documentsData = useSelector(state => state.documents, shallowEqual);
-   const [checkboxAll, setCheckboxAll] = useState(false);
-   const [currentPage, setCurrentPage] = useState(1);
-   const [limit] = useState(10);
-   const [isReloading, setIsReloading] = useState(false); */
-
-   // Функция загрузки документов
-   /*  const loadDocuments = useCallback(async () => {
-       setIsReloading(true);
-       try {
-          const data = await API.getDocumentations(currentPage, limit, "admin"); //  Используем API для документов
-          dispatch(documents(data)); //  Диспатчим action documents
-       } catch (error) {
-          console.error('Ошибка при загрузке документов:', error);
-          // Обработка ошибок
-       } finally {
-          setIsReloading(false);
-       }
-    }, [currentPage, limit, dispatch]); */
-
-   /* useEffect(() => {
-      loadDocuments();
-   }, [loadDocuments]); */
-
-   /* const UpdateCheckbox = (id, currentPublished) => {
-      dispatch(updatePublishedDocument({ id: id, published: currentPublished }));
-   }; */
-
-   // Функция для обновления данных (например, после удаления)
-   /* const handleDocumentUpdate = () => {
-      loadDocuments(); //  Перезагружаем данные
-   }; */
-
-   /* const changePage = (page) => {
-      if (page >= 1 && page <= Math.ceil(documentsData?.all / limit)) {
-         setCurrentPage(page);
-      }
-   }; */
-
-   //Логика изменения индивидуального cчекбокса(групповое выделение)
-   /* const choiceCheckbox = useSelector(state => state.documents.choiceCheckbox);
-   const handleChoiceCheckbox = useCallback((id) => dispatch(addOrRemoveChoiceCheckbox(id)), [dispatch]); */
-
-   /* const handleChoiceCheckboxAll = useCallback(() => {
-      const allIds = documentsData?.list?.map(el => el.id) || [];
-      const allSelected = allIds.every(id => choiceCheckbox.includes(id));
-
-      dispatch(setChoiceCheckboxRemoveOrAddAll(allSelected ? [] : allIds));
-      setCheckboxAll(!allSelected);
-   }, [documentsData.list, checkboxAll]) */
-
-   /* const removeSelectionsChecboxAll = useCallback(() => {
-      dispatch(setChoiceCheckboxRemoveOrAddAll([]));
-      setCheckboxAll(false);
-   }, [dispatch, setCheckboxAll]) */
-
-   /* Групповое изменение по массиву id */
-   /* const publickAll = () => {
-      API.postAddMultipleElementsPublick({ id: choiceCheckbox, published: 1 })
-         .then(_ => {
-            loadDocuments();
-            removeSelectionsChecboxAll();
-         })
-   } */
-   /* const removePublickAll = () => {
-      API.postAddMultipleElementsPublick({ id: choiceCheckbox, published: 0 })
-         .then(_ => {
-            loadDocuments();
-            removeSelectionsChecboxAll();
-         })
-   } */
-   /* const moveInBasketInAll = () => {
-      API.postAddMultipleElementsPublick({ id: choiceCheckbox, remove: 1 })
-         .then(_ => {
-            loadDocuments();
-            removeSelectionsChecboxAll();
-         })
-   } */
 
    const accessLevel = useRequireAccessLevel(level);
    if (!accessLevel) {
@@ -146,7 +71,7 @@ const DocumentsPageList = React.memo(({ level }) => {
                   <div className='dateBlock'>Дата публикации</div>
                </div>
                <div>
-                  {documentsData?.list?.map((el) => (
+                  {data?.list?.map((el) => (
                      <ItemComponent
                         key={el.id}
                         id={el.id}
@@ -162,9 +87,9 @@ const DocumentsPageList = React.memo(({ level }) => {
                   ))}
                </div>
                <PaginationComponent
-                  getData={documentsData}
+                  getData={data}
                   currentPage={currentPage}
-                  totalPages={Math.ceil(documentsData?.all / limit)}
+                  totalPages={Math.ceil(data?.all / limit)}
                   changePage={changePage}
                />
             </div>

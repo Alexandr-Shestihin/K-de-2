@@ -183,6 +183,7 @@ p {
 }
 
 @media screen and (max-width: 745px) {
+
    .breadcrumbsFrom,
    .breadcrumbsTo {
       font-size: 12px;
@@ -554,7 +555,7 @@ p {
    border: 1px solid red;
 }
 
-.borderDocumentContainer > div:not(:first-child) {
+.borderDocumentContainer>div:not(:first-child) {
    margin-top: 32px;
 }
 
@@ -721,7 +722,17 @@ p {
 }
 
 .mainInput {
-   accent-color: var(--text-4);
+   accent-color: var(--main-main);
+   width: 18px;
+   height: 18px;
+}
+
+.mainInput:hover {
+   accent-color: var(--main-main-hover);
+}
+
+.mainInput:active {
+   accent-color: var(--main-main-active);
 }
 
 .checkboxContainer {
@@ -799,7 +810,7 @@ p {
 }
 
 .publishedBlock {
-   width: 15%;
+   width: 164px;
    white-space: nowrap;
    overflow: hidden;
    text-overflow: ellipsis;
@@ -811,7 +822,7 @@ p {
 }
 
 .dateBlock {
-   width: 15%;
+   width: 164px;
    margin-left: 10px;
    white-space: nowrap;
    overflow: hidden;
