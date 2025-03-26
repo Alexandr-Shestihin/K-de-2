@@ -96,16 +96,16 @@ const NewsArticlePage = (props) => {
       }
    });
 
-   const values1 = watch("image_preview_url")
+   watch()
 
    const handleImageChange = useCallback((file) => {
       handler(file, 'image_preview'); // Сохраняем File для отправки
 
       if (file) {
          const url = window.URL.createObjectURL(file);
-         handler('image_preview_url', url)
+         handler(url, 'image_preview_url')
       } else {
-         handler('image_preview_url', '')
+         handler('', 'image_preview_url')
       }
    }, [setValue]);
 
@@ -123,27 +123,11 @@ const NewsArticlePage = (props) => {
       setValue(name, file);
    }, [setValue]);
 
-   const MemoizedNewsArticle = useMemo(
-      () => {
-         console.log(values?.image_preview_url)
-         return (
-            <NewsArticle
-               img={getValues("image_preview_url")}
-               title={getValues("name")}
-               text={getValues("text")}
-            />
-         )
-      },
-      [values1]
-   )
-
    const onSubmit = (data) => {
       saveNews();
       reset();
       console.log(data);
    };
-
-   console.log(values)
 
    return (
       <div className="mt54">
@@ -230,7 +214,11 @@ const NewsArticlePage = (props) => {
 
                <div className="pageTitle mt40">Предпросмотр:</div>
 
-               {MemoizedNewsArticle}
+               <NewsArticle
+                  img={getValues("image_preview_url")}
+                  title={getValues("name")}
+                  text={getValues("text")}
+               />
             </>}
          </ContantContainerAdmin>
       </div>
